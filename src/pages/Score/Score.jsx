@@ -1,6 +1,7 @@
 import React from 'react';
 import WrongAnswersList from './WrongAnswersList';
 import MediumButton from '../../components/MediumButton';
+import styled from 'styled-components';
 
 function Score({
   roundCount,
@@ -9,18 +10,43 @@ function Score({
   handleClickLeaderboard,
 }) {
   return (
-    <div>
-      <p>Game has ended!</p>
-      <p>You have gotten {roundCount} points.</p>
-      <p>This is what you got wrong:</p>
+    <Container>
+      <ScoreDescription>YOUR SCORE:</ScoreDescription>
+      <ScoreValue>{roundCount}</ScoreValue>
+      <AnswersDescription>YOU'VE GOT THIS WRONG:</AnswersDescription>
       <WrongAnswersList gameStatistics={gameStatistics} />
       <MediumButton text={'RETURN TO MENU'} handleClick={handleClickMenu} />
       <MediumButton
         text={'SUBMIT YOUR SCORE'}
         handleClick={handleClickLeaderboard}
       />
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  background-color: #cfcfc7;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+`;
+
+const ScoreValue = styled.h1`
+  font-size: 150px;
+  font-weight: 500;
+  margin: 20px;
+`;
+
+const ScoreDescription = styled.p`
+  color: black;
+  margin-bottom: -25px;
+  font-weight: 450;
+`;
+
+const AnswersDescription = styled.p`
+  font-size: 20px;
+  margin: 0;
+`;
 
 export default Score;

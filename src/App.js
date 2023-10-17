@@ -8,7 +8,7 @@ function App() {
   const [gameMode, setGameMode] = useState('menu');
 
   if (localStorage.getItem('scores') === null) {
-    localStorage.setItem('scores', scores);
+    localStorage.setItem('scores', JSON.stringify(scores));
   }
 
   function setGameModeGame() {
