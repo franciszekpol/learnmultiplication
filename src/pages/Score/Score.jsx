@@ -3,27 +3,6 @@ import WrongAnswersList from './WrongAnswersList';
 import MediumButton from '../../components/MediumButton';
 import styled from 'styled-components';
 
-function Score({
-  roundCount,
-  gameStatistics,
-  handleClickMenu,
-  handleClickLeaderboard,
-}) {
-  return (
-    <Container>
-      <ScoreDescription>YOUR SCORE:</ScoreDescription>
-      <ScoreValue>{roundCount}</ScoreValue>
-      <AnswersDescription>YOU'VE GOT THIS WRONG:</AnswersDescription>
-      <WrongAnswersList gameStatistics={gameStatistics} />
-      <MediumButton text={'RETURN TO MENU'} handleClick={handleClickMenu} />
-      <MediumButton
-        text={'SUBMIT YOUR SCORE'}
-        handleClick={handleClickLeaderboard}
-      />
-    </Container>
-  );
-}
-
 const Container = styled.div`
   background-color: #cfcfc7;
   display: flex;
@@ -48,5 +27,26 @@ const AnswersDescription = styled.p`
   font-size: 20px;
   margin: 0;
 `;
+
+function Score({
+  roundCount,
+  gameStatistics,
+  handleClickMenu,
+  handleClickLeaderboard,
+}) {
+  return (
+    <Container>
+      <ScoreDescription>YOUR SCORE:</ScoreDescription>
+      <ScoreValue>{roundCount}</ScoreValue>
+      <AnswersDescription>YOU'VE GOT THIS WRONG:</AnswersDescription>
+      <WrongAnswersList gameStatistics={gameStatistics} />
+      <MediumButton text={'RETURN TO MENU'} handleClick={handleClickMenu} />
+      <MediumButton
+        text={'SUBMIT YOUR SCORE'}
+        handleClick={handleClickLeaderboard}
+      />
+    </Container>
+  );
+}
 
 export default Score;

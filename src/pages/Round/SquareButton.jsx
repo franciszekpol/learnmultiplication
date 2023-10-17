@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { COLORS } from '../../data/colors';
 
 function SquareButton({ number, handleClick }) {
   return <Button onClick={handleClick}>{number}</Button>;
@@ -12,7 +13,7 @@ const Button = styled.button`
   background-color: white;
   border: none;
   border-radius: 30px;
-  color: black;
+  color: ${COLORS.fontPrimary};
   box-shadow: 0px 16px 30px -10px rgba(150, 170, 180, 0.5);
   text-align: center;
   font-size: 60px;

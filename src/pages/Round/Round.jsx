@@ -1,6 +1,34 @@
 import React from 'react';
 import SquareButton from './SquareButton';
 import LifeBar from './LifeBar';
+import styled from 'styled-components';
+import { COLORS } from '../../data/colors.js';
+
+const Container = styled.div`
+  text-align: center;
+  background-color: ${COLORS.roundBackground};
+  color: ${COLORS.fontPrimary};
+  height: 100vh;
+`;
+
+const InfoBar = styled.div`
+  display: flex;
+`;
+
+const InfoText = styled.p`
+  font-size: 25px;
+  margin: auto;
+  display: flex;
+  text-align: center;
+`;
+
+const AssignmentText = styled.p`
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+`;
 
 function Round({ roundCount, lifesCount, handleClick }) {
   const minRange = 2;
@@ -55,13 +83,16 @@ function Round({ roundCount, lifesCount, handleClick }) {
   }
 
   return (
-    <>
-      <p>Round count: {roundCount}</p>
-      <LifeBar lifesCount={lifesCount} />
-      <p>What is:</p>
-      <p>
+    <Container>
+      <InfoBar>
+        <InfoText>Round: {roundCount}</InfoText>
+        <InfoText>
+          <LifeBar lifesCount={lifesCount} />
+        </InfoText>
+      </InfoBar>
+      <AssignmentText>
         {multiplierA} × {multiplierB}
-      </p>
+      </AssignmentText>
       {answersArray.map((answer, i) => {
         return (
           <SquareButton
@@ -71,7 +102,7 @@ function Round({ roundCount, lifesCount, handleClick }) {
           />
         );
       })}
-    </>
+    </Container>
   );
 }
 
