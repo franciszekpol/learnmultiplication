@@ -2,9 +2,10 @@ import React from 'react';
 import WrongAnswersList from './WrongAnswersList';
 import MediumButton from '../../components/MediumButton';
 import styled from 'styled-components';
+import { COLORS } from '../../data/colors';
 
 const Container = styled.div`
-  background-color: #cfcfc7;
+  background-color: ${COLORS.menuBackground};
   display: flex;
   align-items: center;
   flex-direction: column;

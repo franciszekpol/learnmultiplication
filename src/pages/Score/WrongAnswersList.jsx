@@ -1,24 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { COLORS } from '../../data/colors';
 
-function WrongAnswersList({ gameStatistics }) {
-  return (
-    <UnorderedList>
-      {gameStatistics.map((round, i) => {
-        if (!round.isCorrect) {
-          return (
-            <ListItem key={i}>
-              {round.multiplierA} × {round.multiplierB} = {round.correctAnswer}{' '}
-              <i>
-                <s>{round.userAnswer}</s>
-              </i>
-            </ListItem>
-          );
-        } else return null;
-      })}
-    </UnorderedList>
-  );
-}
 const UnorderedList = styled.ul`
   width: 100%;
   list-style: none;
@@ -36,7 +19,30 @@ const ListItem = styled.li`
   border: none;
   border-radius: 18px;
   font-size: 30px;
-  background-color: #fffdee;
+  background-color: ${COLORS.banner};
 `;
+
+const WrongAnswer = styled.i`
+  color: ${COLORS.wrongAnswer};
+`;
+
+function WrongAnswersList({ gameStatistics }) {
+  return (
+    <UnorderedList>
+      {gameStatistics.map((round, i) => {
+        if (!round.isCorrect) {
+          return (
+            <ListItem key={i}>
+              {round.multiplierA} × {round.multiplierB} = {round.correctAnswer}{' '}
+              <WrongAnswer>
+                <s>{round.userAnswer}</s>
+              </WrongAnswer>
+            </ListItem>
+          );
+        } else return null;
+      })}
+    </UnorderedList>
+  );
+}
 
 export default WrongAnswersList;
