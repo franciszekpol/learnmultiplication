@@ -1,8 +1,8 @@
-import React from 'react';
 import SquareButton from './SquareButton';
 import LifeBar from './LifeBar';
 import styled from 'styled-components';
 import { COLORS } from '../../data/colors.js';
+import Timer from '../../components/Timer';
 
 const Container = styled.div`
   text-align: center;
@@ -102,6 +102,8 @@ function Round({ roundCount, lifesCount, handleClick }) {
           />
         );
       })}
+      {roundCount % 2 === 0 && <Timer />}
+      {!roundCount % 2 === 0 && <Timer />}
     </Container>
   );
 }
