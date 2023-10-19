@@ -102,8 +102,16 @@ function Round({ roundCount, lifesCount, handleClick }) {
           />
         );
       })}
-      {roundCount % 2 === 0 && <Timer />}
-      {!roundCount % 2 === 0 && <Timer />}
+      {roundCount % 2 === 0 && (
+        <Timer
+          handleClick={() => handleClick(multiplierA, multiplierB, null)}
+        />
+      )}
+      {!roundCount % 2 === 0 && (
+        <Timer
+          handleClick={() => handleClick(multiplierA, multiplierB, null)}
+        />
+      )}
     </Container>
   );
 }

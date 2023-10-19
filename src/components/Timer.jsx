@@ -23,13 +23,13 @@ const Line = styled.p`
 `;
 
 const Icon = styled.p`
-  font-size: 30px;
+  font-size: 35px;
   position: absolute;
   z-index: 2;
   margin: 0 0 0 10px;
 `;
 
-function Timer() {
+function Timer({ handleClick }) {
   const [time, setTime] = useState(10);
 
   function getCurrentLineWidth() {
@@ -43,6 +43,12 @@ function Timer() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (time === -1) {
+      handleClick();
+    }
+  }, [time]);
+
   return (
     <div>
       <p>Time: {time}</p>
@@ -50,7 +56,7 @@ function Timer() {
         {time > 0 ? (
           <Icon display='inline'>&#128163;</Icon>
         ) : (
-          <Icon display='inline'>&#128293;</Icon>
+          <Icon display='inline'>&#128165;</Icon>
         )}
         <Line width={getCurrentLineWidth()} time={time} />
       </TimeBar>
