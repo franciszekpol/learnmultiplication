@@ -9,6 +9,7 @@ export const COLORS = {
     textDescription: "#746b66",
     lightpurple: "#c6b8e9",
     deeppurple: "#6d4fa7",
+    lightred: "#c23649",
     banner: "#fffdee",
     wrongAnswer: "#dc3545"
 }

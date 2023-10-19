@@ -35,16 +35,44 @@ function Score({
   handleClickMenu,
   handleClickLeaderboard,
 }) {
+  function updateLeaderboard() {
+    const newScore = gameStatistics.length;
+    const scores = JSON.parse(localStorage.getItem('scores'));
+
+    let isUserAlreadyOnTheLeaderboard = false;
+    scores.forEach((entry) => {
+      if (entry.username === 'YOU') {
+        isUserAlreadyOnTheLeaderboard = true;
+      }
+    });
+
+    if (isUserAlreadyOnTheLeaderboard) {
+      scores.forEach((entry) => {
+        if (entry.username === 'YOU') {
+          if (entry.score < newScore) {
+            entry.score = newScore;
+          }
+        }
+      });
+    } else {
+      scores.push({ username: 'YOU', score: newScore });
+    }
+    localStorage.setItem('scores', JSON.stringify(scores));
+  }
+
   return (
     <Container>
       <ScoreDescription>YOUR SCORE:</ScoreDescription>
-      <ScoreValue>{roundCount}</ScoreValue>
+      <ScoreValue>{gameStatistics.length}</ScoreValue>
       <AnswersDescription>YOU'VE GOT THIS WRONG:</AnswersDescription>
       <WrongAnswersList gameStatistics={gameStatistics} />
       <MediumButton text={'RETURN TO MENU'} handleClick={handleClickMenu} />
       <MediumButton
         text={'SUBMIT YOUR SCORE'}
-        handleClick={handleClickLeaderboard}
+        handleClick={() => {
+          updateLeaderboard();
+          handleClickLeaderboard();
+        }}
       />
     </Container>
   );

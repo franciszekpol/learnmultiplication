@@ -32,7 +32,6 @@ const UnorderedList = styled.ul`
 
 const ListItem = styled.li`
   background-color: ${COLORS.banner};
-  // width: 90%;
   width: 90vw;
   display: flex;
   justify-content: space-between;
@@ -40,6 +39,13 @@ const ListItem = styled.li`
   height: 60px;
   margin: 4px 0;
   box-shadow: 0px 16px 30px -10px rgb(39 42 44 / 50%);
+  color: ${(props) => {
+    if (props.children[0].props.children === 'YOU') {
+      return COLORS.lightred;
+    } else {
+      return 'black';
+    }
+  }};
 `;
 
 const Paragraph = styled.p`
@@ -51,7 +57,9 @@ const Paragraph = styled.p`
 
 function Leaderboard({ handleClickMenu }) {
   const leaderboardEntries = JSON.parse(localStorage.getItem('scores')) || [];
-  leaderboardEntries.sort((a, b) => (a.score < b.score ? 1 : -1));
+  leaderboardEntries.sort((a, b) =>
+    parseInt(a.score) < parseInt(b.score) ? 1 : -1
+  );
 
   return (
     <Container>
