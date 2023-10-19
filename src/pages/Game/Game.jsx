@@ -4,7 +4,7 @@ import Round from '../Round/Round';
 import Score from '../Score/Score';
 
 function Game({ handleClickMenu, handleClickLeaderboard }) {
-  const [roundCount, setRoundCount] = useState(0);
+  const [roundCount, setRoundCount] = useState(1);
   const [lifesCount, setLifesCount] = useState(3);
   const [gameStatistics, setGameStatistics] = useState([]);
 
