@@ -4,6 +4,7 @@ import { COLORS } from '../../data/colors';
 
 const UnorderedList = styled.ul`
   width: 100%;
+  max-width: 414px;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -15,7 +16,8 @@ const UnorderedList = styled.ul`
 
 const ListItem = styled.li`
   width: 80%;
-  margin: 4px;
+  max-width: 414px;
+  margin: 5px;
   border: none;
   border-radius: 18px;
   font-size: 30px;

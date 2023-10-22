@@ -5,6 +5,7 @@ import { COLORS } from '../data/colors';
 const TimeBar = styled.div`
   height: 60px;
   position: relative;
+  width: 350px;
 `;
 
 const Line = styled.p`
@@ -12,7 +13,6 @@ const Line = styled.p`
   border-radius: 5px;
   position: absolute;
   z-index: 1;
-  margin-left: 20px;
   box-shadow: 0 2px gray;
   color: black;
   width: ${(props) => props.width};
@@ -28,13 +28,12 @@ const Icon = styled.p`
   font-size: 35px;
   position: absolute;
   z-index: 2;
-  margin: 0 0 0 10px;
+  margin: 0 0 0 -15px;
 `;
 
 const Countdown = styled.p`
   text-align: left;
   font-weight: bold;
-  margin-left: 20px;
   margin-bottom: 0;
 `;
 

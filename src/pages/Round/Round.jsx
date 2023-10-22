@@ -16,8 +16,12 @@ const InfoBar = styled.div`
 `;
 
 const TimerBar = styled.div`
-  position: absolute;
-  bottom: 0;
+  // position: absolute;
+  // bottom: 0;
+  // margin: auto;
+  display: flex;
+  justify-content: center;
+  height: 10%;
 `;
 
 const InfoText = styled.div`
@@ -25,6 +29,7 @@ const InfoText = styled.div`
   margin: auto;
   display: flex;
   text-align: center;
+  height: 10%;
 `;
 
 const AssignmentText = styled.p`
@@ -33,6 +38,15 @@ const AssignmentText = styled.p`
   align-items: center;
   justify-content: center;
   font-size: 100px;
+  height: 40%;
+  margin: 0;
+`;
+
+const ButtonGrid = styled.div`
+  height: 40%;
+  max-width: 414px;
+  align-items: center;
+  margin: auto;
 `;
 
 function Round({ roundCount, lifesCount, handleClick }) {
@@ -98,15 +112,17 @@ function Round({ roundCount, lifesCount, handleClick }) {
       <AssignmentText>
         {multiplierA} × {multiplierB}
       </AssignmentText>
-      {answersArray.map((answer, i) => {
-        return (
-          <SquareButton
-            number={answer}
-            key={i}
-            handleClick={() => handleClick(multiplierA, multiplierB, answer)}
-          />
-        );
-      })}
+      <ButtonGrid>
+        {answersArray.map((answer, i) => {
+          return (
+            <SquareButton
+              number={answer}
+              key={i}
+              handleClick={() => handleClick(multiplierA, multiplierB, answer)}
+            />
+          );
+        })}
+      </ButtonGrid>
       <TimerBar>
         <Timer
           key={roundCount}

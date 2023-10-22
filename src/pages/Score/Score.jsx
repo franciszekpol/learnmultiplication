@@ -8,6 +8,7 @@ const Container = styled.div`
   background-color: ${COLORS.menuBackground};
   display: flex;
   align-items: center;
+  text-align: center;
   flex-direction: column;
   height: 100vh;
 `;
@@ -21,12 +22,21 @@ const ScoreValue = styled.h1`
 const ScoreDescription = styled.p`
   color: black;
   margin-bottom: -25px;
+  padding-top: 30px;
   font-weight: 450;
 `;
 
 const AnswersDescription = styled.p`
   font-size: 20px;
   margin: 0;
+`;
+
+const ButtonBar = styled.div`
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 `;
 
 function Score({
@@ -66,14 +76,16 @@ function Score({
       <ScoreValue>{gameStatistics.length}</ScoreValue>
       <AnswersDescription>YOU'VE GOT THIS WRONG:</AnswersDescription>
       <WrongAnswersList gameStatistics={gameStatistics} />
-      <MediumButton text={'RETURN TO MENU'} handleClick={handleClickMenu} />
-      <MediumButton
-        text={'SUBMIT YOUR SCORE'}
-        handleClick={() => {
-          updateLeaderboard();
-          handleClickLeaderboard();
-        }}
-      />
+      <ButtonBar>
+        <MediumButton text={'RETURN TO MENU'} handleClick={handleClickMenu} />
+        <MediumButton
+          text={'SUBMIT YOUR SCORE'}
+          handleClick={() => {
+            updateLeaderboard();
+            handleClickLeaderboard();
+          }}
+        />
+      </ButtonBar>
     </Container>
   );
 }

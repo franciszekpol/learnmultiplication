@@ -28,11 +28,13 @@ const UnorderedList = styled.ul`
   align-items: center;
   padding: 0;
   margin-top: 0;
+  max-width: 414px;
 `;
 
 const ListItem = styled.li`
   background-color: ${COLORS.banner};
   width: 90vw;
+  max-width: 414px;
   display: flex;
   justify-content: space-between;
   border-radius: 8px;
