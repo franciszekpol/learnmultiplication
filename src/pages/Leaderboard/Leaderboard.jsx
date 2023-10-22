@@ -55,6 +55,11 @@ const Paragraph = styled.p`
   font-size: 22px;
 `;
 
+const ButtonBar = styled.div`
+  position: absolute;
+  bottom: 30px;
+`;
+
 function Leaderboard({ handleClickMenu }) {
   const leaderboardEntries = JSON.parse(localStorage.getItem('scores')) || [];
   leaderboardEntries.sort((a, b) =>
@@ -74,12 +79,14 @@ function Leaderboard({ handleClickMenu }) {
           );
         })}
       </UnorderedList>
-      <MediumButton
-        text={'RETURN TO MENU'}
-        handleClick={() => {
-          handleClickMenu();
-        }}
-      />
+      <ButtonBar>
+        <MediumButton
+          text={'RETURN TO MENU'}
+          handleClick={() => {
+            handleClickMenu();
+          }}
+        />
+      </ButtonBar>
     </Container>
   );
 }
