@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { COLORS } from '../data/colors';
 
 const TimeBar = styled.div`
-  height: 80px;
+  height: 60px;
   position: relative;
 `;
 
@@ -13,6 +13,8 @@ const Line = styled.p`
   position: absolute;
   z-index: 1;
   margin-left: 20px;
+  box-shadow: 0 2px gray;
+  color: black;
   width: ${(props) => props.width};
   background-color: ${(props) => {
     if (props.time === 1) return '#ff0000';
@@ -27,6 +29,13 @@ const Icon = styled.p`
   position: absolute;
   z-index: 2;
   margin: 0 0 0 10px;
+`;
+
+const Countdown = styled.p`
+  text-align: left;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-bottom: 0;
 `;
 
 function Timer({ handleClick }) {
@@ -51,7 +60,7 @@ function Timer({ handleClick }) {
 
   return (
     <div>
-      <p>Time: {time}</p>
+      <Countdown>{time}</Countdown>
       <TimeBar>
         {time > 0 ? (
           <Icon display='inline'>&#128163;</Icon>

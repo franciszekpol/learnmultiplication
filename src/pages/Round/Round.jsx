@@ -15,7 +15,12 @@ const InfoBar = styled.div`
   display: flex;
 `;
 
-const InfoText = styled.p`
+const TimerBar = styled.div`
+  position: absolute;
+  bottom: 0;
+`;
+
+const InfoText = styled.div`
   font-size: 25px;
   margin: auto;
   display: flex;
@@ -102,10 +107,12 @@ function Round({ roundCount, lifesCount, handleClick }) {
           />
         );
       })}
-      <Timer
-        key={roundCount}
-        handleClick={() => handleClick(multiplierA, multiplierB, null)}
-      />
+      <TimerBar>
+        <Timer
+          key={roundCount}
+          handleClick={() => handleClick(multiplierA, multiplierB, null)}
+        />
+      </TimerBar>
     </Container>
   );
 }
