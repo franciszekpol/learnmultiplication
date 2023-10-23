@@ -20,9 +20,9 @@
 
 ## Screenshots
 
-![Screenshot 1](./src/img/screenshot1.jpeg)
-![Screenshot 2](./src/img/screenshot2.jpeg)
-![Screenshot 3](./src/img/screenshot3.jpeg)
+<img src="./src/img/screenshot1.jpeg" width=65% height=65%>
+<img src="./src/img/screenshot2.jpeg" width=65% height=65%>
+<img src="./src/img/screenshot3.jpeg" width=65% height=65%>
 
 ## Technologies Used
 
