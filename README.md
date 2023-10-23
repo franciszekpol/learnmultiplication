@@ -20,9 +20,7 @@
 
 ## Screenshots
 
-<img src="./src/img/screenshot1.jpeg" width=65% height=65%>
-<img src="./src/img/screenshot2.jpeg" width=65% height=65%>
-<img src="./src/img/screenshot3.jpeg" width=65% height=65%>
+![Screenshots](./src/img/screenshots.png)
 
 ## Technologies Used
 
